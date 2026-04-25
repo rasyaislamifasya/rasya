@@ -1,11 +1,10 @@
-# Portfolio Khairul Munandar
+# Portfolio rasya
 
 Website portfolio ini disiapkan untuk dihosting di GitHub Pages.
 
 ## Isi folder
 - `index.html` — halaman utama portfolio
-- `BIO.html` — salinan halaman jika ingin tetap menyimpan versi original
-- `foto.jpg`, `foto1.jpeg`, `foto2.jpeg`, `foto3.jpeg` — gambar profil dan galeri
+- `foto.jpg`, — gambar profil dan galeri
 
 ## Cara menghosting di GitHub Pages
 1. Buat repository GitHub baru.
@@ -17,5 +16,6 @@ Website portfolio ini disiapkan untuk dihosting di GitHub Pages.
 ## Catatan
 - Pastikan `index.html` ada di root repository agar GitHub Pages dapat langsung menampilkan website.
 - Jika file gambar tidak tampil, pastikan nama file dan ekstensi sesuai dengan yang ada di folder.
+"# rasya" 
 "# rasya" 
 "# rasya" 
