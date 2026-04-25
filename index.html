@@ -263,6 +263,13 @@ nav .nav-inner {
 .details-list span {
   display: block;
 }
+.portfolio-card {
+  transition: transform 0.3s;
+}
+
+.portfolio-card:hover {
+  transform: scale(1.05);
+}
 
 .skills {
   display: grid;
@@ -448,23 +455,38 @@ nav .nav-inner {
     </div>
   </section>
 
-  <section id="portfolio" class="section">
-    <h2>Portofolio Singkat</h2>
-    <div class="portfolio-grid">
-      <article class="portfolio-card">
-        <h3>Website Kampus</h3>
-        <p>Desain dan implementasi situs responsif untuk kegiatan mahasiswa dan informasi akademik.</p>
-      </article>
-      <article class="portfolio-card">
-        <h3>Dashboard Manajemen</h3>
-        <p>Aplikasi internal untuk memantau data kegiatan dan laporan proyek secara real-time.</p>
-      </article>
-      <article class="portfolio-card">
-        <h3>Landing Page Portofolio</h3>
-        <p>Pengembangan halaman personal branding dengan fokus pada UI/UX modern dan interaksi halus.</p>
-      </article>
-    </div>
-  </section>
+<section id="portfolio" class="section">
+  <h2>Portofolio Singkat</h2>
+  <div class="portfolio-grid">
+
+    <!-- Project 1 -->
+    <article class="portfolio-card">
+      <a href="https://frontend-chi-gold-54.vercel.app/" target="_blank">
+        <img src="gojek.jpg" alt="Gojek App" width="100%">
+        <h3>Website Gojek</h3>
+        <p>Clone tampilan aplikasi Gojek berbasis web.</p>
+      </a>
+    </article>
+
+    <!-- Project 2 -->
+    <article class="portfolio-card">
+      <a href="https://frontend-chi-gold-54.vercel.app/" target="_blank">
+        <img src="gojek.jpg" alt="Project 2" width="100%">
+        <h3>Project Kedua</h3>
+        <p>Deskripsi singkat project kedua.</p>
+      </a>
+    </article>
+     <!-- Project 2 -->
+    <article class="portfolio-card">
+      <a href="https://frontend-chi-gold-54.vercel.app/" target="_blank">
+        <img src="gojek.jpg" alt="Project 2" width="100%">
+        <h3>Project Kedua</h3>
+        <p>Deskripsi singkat project kedua.</p>
+      </a>
+    </article>
+
+  </div>
+</section>
 
   <section id="gallery" class="section">
     <h2>Galeri Foto</h2>
