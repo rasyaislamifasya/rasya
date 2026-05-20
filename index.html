@@ -3,529 +3,702 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Portfolio — Rasya Islami Fasya</title>
+
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
 <style>
-:root {
-  --bg-start: #8adf8e;
-  --bg-end: #0d8f52;
-  --surface: rgba(90, 58, 148, 0.88);
-  --surface-strong: rgba(10, 16, 34, 0.96);
-  --text: #eef7ff;
-  --muted: #94b4d8;
-  --accent: #0af2ff;
-  --accent-strong: #38f7ff;
-  --neon: #53f0ff;
-  --border: rgba(81, 197, 255, 0.18);
+
+:root{
+  --bg:#07111f;
+  --card:#101c2f;
+  --card2:#16253d;
+  --text:#ffffff;
+  --muted:#9fb3c8;
+  --primary:#00e0ff;
+  --primary2:#5ffbf1;
+  --border:rgba(255,255,255,0.08);
 }
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
 }
 
-body {
-  min-height: 100vh;
-  font-family: 'Poppins', sans-serif;
-  background: radial-gradient(circle at top left, rgba(10, 242, 255, 0.16), transparent 24%),
-              linear-gradient(180deg, var(--bg-start) 0%, var(--bg-end) 100%);
-  color: var(--text);
+html{
+  scroll-behavior:smooth;
 }
 
-body::before {
-  content: '';
-  position: fixed;
-  inset: 0;
-  background: linear-gradient(135deg, rgba(56, 189, 248, 0.06), transparent 30%, rgba(14, 165, 233, 0.05));
-  pointer-events: none;
+body{
+  font-family:'Poppins',sans-serif;
+  background:
+  radial-gradient(circle at top left,rgba(0,224,255,0.1),transparent 25%),
+  linear-gradient(180deg,#07111f,#0c1830);
+  color:var(--text);
+  overflow-x:hidden;
 }
 
-.container {
-  width: min(1200px, calc(100% - 2rem));
-  margin: 0 auto;
-  padding: 4.5rem 0 3rem;
+/* NAVBAR */
+
+nav{
+  position:sticky;
+  top:0;
+  z-index:999;
+  backdrop-filter:blur(20px);
+  background:rgba(7,17,31,0.8);
+  border-bottom:1px solid rgba(255,255,255,0.06);
 }
 
-nav {
-  position: sticky;
-  top: 0;
-  z-index: 10;
-  background: rgba(0, 0, 0, 0.88);
-  backdrop-filter: blur(18px);
-  border-bottom: 1px solid rgba(10, 242, 255, 0.18);
+.container{
+  width:min(1180px,calc(100% - 2rem));
+  margin:auto;
 }
 
-nav .nav-inner {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1rem;
-  padding: 1rem 0;
+.nav-inner{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:1rem 0;
 }
 
-.brand {
-  font-size: 1.05rem;
-  font-weight: 700;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
+.brand{
+  font-size:1.2rem;
+  font-weight:700;
+  color:white;
 }
 
-.nav-links {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
+.nav-links{
+  display:flex;
+  gap:1.2rem;
+  flex-wrap:wrap;
 }
 
-.nav-links a {
-  color: var(--muted);
-  text-decoration: none;
-  font-size: 0.95rem;
-  transition: color 0.2s ease;
+.nav-links a{
+  color:var(--muted);
+  text-decoration:none;
+  position:relative;
+  transition:0.3s;
 }
 
-.nav-links a:hover {
-  color: var(--text);
+.nav-links a:hover{
+  color:white;
 }
 
-.hero {
-  display: grid;
-  grid-template-columns: 0.9fr 1.2fr;
-  gap: 2rem;
-  align-items: center;
-  margin-bottom: 3rem;
+.nav-links a::after{
+  content:"";
+  position:absolute;
+  left:0;
+  bottom:-5px;
+  width:0%;
+  height:2px;
+  background:var(--primary);
+  transition:0.3s;
 }
 
-.hero-card,
-.section-card,
-.small-card {
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: 28px;
-  box-shadow: 0 24px 80px rgba(0,0,0,0.18);
+.nav-links a:hover::after{
+  width:100%;
 }
 
-.hero-card {
-  padding: 2rem;
+/* HERO */
+
+.hero{
+  display:grid;
+  grid-template-columns:0.9fr 1.2fr;
+  gap:2rem;
+  align-items:center;
+  padding:5rem 0;
 }
 
-.hero-title {
-  font-size: clamp(2rem, 4vw, 3.5rem);
-  line-height: 1.05;
-  margin-bottom: 1rem;
-  color: #f5fcff;
+.profile-panel{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
 }
 
-.hero-subtitle {
-  max-width: 46rem;
-  color: var(--muted);
-  margin-bottom: 1.75rem;
-  line-height: 1.9;
+.profile-frame{
+  width:280px;
+  height:280px;
+  border-radius:50%;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  background:rgba(255,255,255,0.04);
+  border:2px solid rgba(255,255,255,0.08);
+  animation:float 4s ease-in-out infinite;
 }
 
-.badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  padding: 0.8rem 1rem;
-  border-radius: 999px;
-  background: rgba(10, 242, 255, 0.16);
-  color: var(--accent-strong);
-  font-weight: 600;
-  margin-bottom: 1.75rem;
+.profile-img{
+  width:240px;
+  height:240px;
+  border-radius:50%;
+  object-fit:cover;
+  border:4px solid rgba(255,255,255,0.08);
 }
 
-.action-group {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
+@keyframes float{
+  0%{transform:translateY(0);}
+  50%{transform:translateY(-10px);}
+  100%{transform:translateY(0);}
 }
 
-.button {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0.95rem 1.6rem;
-  border-radius: 999px;
-  border: none;
-  cursor: pointer;
-  font-weight: 600;
-  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+.profile-name{
+  margin-top:1rem;
+  font-size:1.5rem;
+  font-weight:700;
 }
 
-.button-primary {
-  background: linear-gradient(135deg, var(--accent), var(--accent-strong));
-  color: #02040f;
-  box-shadow: 0 18px 36px rgba(10, 223, 255, 0.24);
+.hero-card{
+  background:rgba(16,28,47,0.85);
+  padding:2.5rem;
+  border-radius:28px;
+  border:1px solid var(--border);
+  position:relative;
+  overflow:hidden;
 }
 
-.button-secondary {
-  background: rgba(10, 20, 40, 0.95);
-  color: var(--accent);
-  border: 1px solid rgba(56, 255, 255, 0.22);
+.hero-card::before{
+  content:"";
+  position:absolute;
+  width:350px;
+  height:350px;
+  background:rgba(0,224,255,0.08);
+  border-radius:50%;
+  top:-150px;
+  right:-150px;
 }
 
-.button:hover {
-  transform: translateY(-2px);
+.badge{
+  display:inline-flex;
+  align-items:center;
+  gap:0.5rem;
+  padding:0.8rem 1rem;
+  border-radius:999px;
+  background:rgba(0,224,255,0.1);
+  color:var(--primary2);
+  margin-bottom:1.5rem;
+  font-weight:600;
 }
 
-.profile-panel {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 2rem 1rem;
+.hero-title{
+  font-size:clamp(2rem,5vw,4rem);
+  line-height:1.1;
+  margin-bottom:1rem;
 }
 
-.profile-frame {
-  width: 260px;
-  height: 260px;
-  border-radius: 50%;
-  background: rgba(56, 189, 248, 0.1);
-  border: 3px solid rgba(56, 189, 248, 0.28);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 24px 70px rgba(56, 189, 248, 0.16);
+.hero-subtitle{
+  color:var(--muted);
+  line-height:1.9;
+  margin-bottom:2rem;
 }
 
-.profile-img {
-  width: 216px;
-  height: 216px;
-  border-radius: 50%;
-  object-fit: cover;
-  border: 4px solid rgba(255,255,255,0.16);
+.action-group{
+  display:flex;
+  gap:1rem;
+  flex-wrap:wrap;
 }
 
-.profile-name {
-  margin-top: 1rem;
-  color: #e7fbff;
-  font-size: 1.5rem;
-  font-weight: 700;
-  text-align: center;
+.button{
+  padding:1rem 1.6rem;
+  border-radius:999px;
+  text-decoration:none;
+  font-weight:600;
+  transition:0.3s;
+  display:inline-flex;
+  align-items:center;
+  gap:0.6rem;
 }
 
-.profile-summary {
-  display: grid;
-  gap: 1rem;
+.button-primary{
+  background:linear-gradient(135deg,var(--primary),var(--primary2));
+  color:#000;
 }
 
-.profile-summary p {
-  color: var(--muted);
-  line-height: 1.8;
+.button-secondary{
+  background:#18263f;
+  color:var(--primary);
+  border:1px solid rgba(255,255,255,0.08);
 }
 
-.stats-grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 1rem;
+.button:hover{
+  transform:translateY(-4px);
 }
 
-.stat-card {
-  background: rgba(255,255,255,0.04);
-  padding: 1rem 1.25rem;
-  border-radius: 20px;
-  border: 1px solid rgba(255,255,255,0.06);
+/* SECTION */
+
+.section{
+  margin-top:4rem;
 }
 
-.stat-card strong {
-  display: block;
-  font-size: 1.1rem;
-  margin-bottom: 0.35rem;
+.section h2{
+  font-size:2rem;
+  margin-bottom:1.5rem;
+  position:relative;
 }
 
-.section {
-  margin-top: 3rem;
+.section h2::after{
+  content:"";
+  width:80px;
+  height:4px;
+  background:var(--primary);
+  position:absolute;
+  left:0;
+  bottom:-10px;
+  border-radius:10px;
 }
 
-.section h2 {
-  font-size: 1.4rem;
-  margin-bottom: 1rem;
+.section-card{
+  background:rgba(16,28,47,0.85);
+  padding:2rem;
+  border-radius:24px;
+  border:1px solid var(--border);
+  transition:0.3s;
 }
 
-.section-card {
-  padding: 1.75rem;
+.section-card:hover{
+  transform:translateY(-5px);
 }
 
-.section-grid {
-  display: grid;
-  gap: 1.5rem;
+.details-list{
+  display:grid;
+  gap:1rem;
+  line-height:1.8;
 }
 
-.details-list {
-  display: grid;
-  gap: 0.8rem;
-  color: var(--text);
-  line-height: 1.9;
+/* SKILLS */
+
+.skills{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(140px,1fr));
+  gap:1rem;
 }
 
-.details-list span {
-  display: block;
-}
-.portfolio-card {
-  transition: transform 0.3s;
-}
-
-.portfolio-card:hover {
-  transform: scale(1.05);
+.skills span{
+  background:#16253d;
+  padding:1rem;
+  border-radius:18px;
+  text-align:center;
+  transition:0.3s;
+  border:1px solid rgba(255,255,255,0.06);
 }
 
-.skills {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-  gap: 0.9rem;
-  margin-top: 0.8rem;
+.skills span:hover{
+  background:rgba(0,224,255,0.1);
+  transform:scale(1.05);
 }
 
-.skills span {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0.9rem 1rem;
-  border-radius: 18px;
-  background: rgba(56, 189, 248, 0.14);
-  color: var(--text);
-  font-size: 0.95rem;
-  border: 1px solid rgba(56, 189, 248, 0.16);
+/* EXPERIENCE */
+
+.section-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:1.5rem;
 }
 
-.portfolio-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 1.5rem;
-  margin-top: 1rem;
+/* PORTFOLIO */
+
+.portfolio-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+  gap:1.5rem;
 }
 
-.portfolio-card,
-.gallery-card {
-  background: rgba(255,255,255,0.03);
-  border: 1px solid rgba(81, 197, 255, 0.14);
-  border-radius: 24px;
-  padding: 1.5rem;
-  overflow: hidden;
+.portfolio-card{
+  background:rgba(16,28,47,0.85);
+  border-radius:24px;
+  padding:1.5rem;
+  border:1px solid var(--border);
+  transition:0.3s;
 }
 
-.gallery-card img {
-  width: 100%;
-  height: 220px;
-  object-fit: cover;
-  border-radius: 20px;
-  margin-bottom: 1rem;
-  border: 1px solid rgba(81, 197, 255, 0.22);
+.portfolio-card:hover{
+  transform:translateY(-8px);
 }
 
-.gallery-meta h3 {
-  margin-bottom: 0.5rem;
-  color: #e7fbff;
+.portfolio-card img{
+  width:100%;
+  height:220px;
+  object-fit:cover;
+  border-radius:18px;
+  margin-bottom:1rem;
 }
 
-.gallery-meta p {
-  color: var(--muted);
-  line-height: 1.7;
+.portfolio-card h3{
+  margin-bottom:0.8rem;
 }
 
-.portfolio-card h3 {
-  margin-bottom: 0.75rem;
+.portfolio-card p{
+  color:var(--muted);
+  line-height:1.7;
+  margin-bottom:1rem;
 }
 
-.portfolio-card p {
-  color: var(--muted);
-  line-height: 1.75;
+.project-links{
+  display:flex;
+  gap:1rem;
+  flex-wrap:wrap;
 }
 
-.footer {
-  text-align: center;
-  margin-top: 4rem;
-  color: var(--muted);
+.project-links a{
+  text-decoration:none;
+  color:var(--primary);
+  font-weight:600;
 }
 
-@media (max-width: 860px) {
-  .hero {
-    grid-template-columns: 1fr;
-  }
-
-  nav .nav-inner {
-    flex-direction: column;
-    align-items: flex-start;
-  }
+.project-links a:hover{
+  color:white;
 }
 
-@media (max-width: 640px) {
-  .container {
-    padding: 3rem 0 2rem;
-  }
+/* FOOTER */
 
-  .hero-title {
-    font-size: 2.6rem;
-  }
-
-  .stats-grid {
-    grid-template-columns: 1fr;
-  }
+.footer{
+  text-align:center;
+  padding:3rem 0;
+  margin-top:3rem;
+  color:var(--muted);
 }
+
+/* RESPONSIVE */
+
+@media(max-width:860px){
+
+.hero{
+  grid-template-columns:1fr;
+}
+
+.hero-card{
+  text-align:center;
+}
+
+.action-group{
+  justify-content:center;
+}
+
+.section h2{
+  font-size:1.7rem;
+}
+
+}
+
+@media(max-width:600px){
+
+.nav-inner{
+  flex-direction:column;
+  gap:1rem;
+}
+
+.nav-links{
+  justify-content:center;
+}
+
+.profile-frame{
+  width:220px;
+  height:220px;
+}
+
+.profile-img{
+  width:190px;
+  height:190px;
+}
+
+.hero-card{
+  padding:1.5rem;
+}
+
+.hero-title{
+  font-size:2rem;
+}
+
+.button{
+  width:100%;
+  justify-content:center;
+}
+
+.action-group{
+  flex-direction:column;
+}
+
+.portfolio-grid{
+  grid-template-columns:1fr;
+}
+
+}
+
 </style>
 </head>
 
 <body>
+
 <nav>
   <div class="container nav-inner">
-    <div class="brand">Rasya Islami Fasya</div>
+
+    <div class="brand">
+      Rasya Islami Fasya
+    </div>
+
     <div class="nav-links">
       <a href="#about">Tentang</a>
       <a href="#education">Pendidikan</a>
       <a href="#skills">Keahlian</a>
       <a href="#experience">Pengalaman</a>
-      <a href="#gallery">Galeri</a>
+      <a href="#portfolio">Portfolio</a>
       <a href="#contact">Kontak</a>
     </div>
+
   </div>
 </nav>
 
 <div class="container">
-  <section class="hero">
-    <aside class="profile-panel">
-      <div class="profile-frame">
-        <img src="foto.jpeg" alt="Foto Rasya islami fasya" class="profile-img">
-      </div>
-      <div class="profile-name">Rasya Islami Fasya</div>
-    </aside>
 
-    <div class="hero-card">
-      <span class="badge">Mahasiswa TI & Pengembang Web</span>
-      <h1 class="hero-title">Membangun pengalaman digital yang elegan dan fungsional.</h1>
-      <p class="hero-subtitle">Saya adalah Rasya islami fasya, mahasiswa Teknik Informatika Universitas Jabal Ghafur yang fokus pada web development, UI/UX, dan solusi digital kreatif.</p>
-      <div class="action-group">
-        <a href="#contact" class="button button-primary">Hubungi Saya</a>
-        <a href="https://github.com/rasyaislamifasya" class="button button-secondary" target="_blank">
-  Lihat Portofolio
-</a>
-      </div>
+<section class="hero">
+
+  <aside class="profile-panel">
+
+    <div class="profile-frame">
+      <img src="foto.jpeg" alt="Foto Rasya" class="profile-img">
     </div>
-  </section>
 
-  <section id="about" class="section">
-    <h2>Tentang Saya</h2>
-    <div class="section-card">
-      <p>Saya adalah mahasiswa Teknik Informatika semester akhir dengan passion di bidang pengembangan web dan desain UI/UX. Saya aktif mengikuti kompetisi, membuat project, dan terus mengembangkan kemampuan melalui pengalaman praktis dan kolaborasi.</p>
+    <div class="profile-name">
+      Rasya Islami Fasya
     </div>
-  </section>
 
-  <section id="education" class="section">
-    <h2>Pendidikan</h2>
-    <div class="section-card details-list">
-      <span><strong>S1 Teknik Informatika</strong> — Universitas Jabal Ghafur (2024–kini)</span>
-      <span><strong>MAN 2 Pidie</strong> — IPA (2024)</span>
-      <span><strong>MTsN 4 Pidie</strong> (2021)</span>
-      <span><strong>SD Negeri 01 Pidie</strong> (2015)</span>
-      <span><strong>IPK</strong> 3.72 / 4.00</span>
+  </aside>
+
+  <div class="hero-card">
+
+    <div class="badge">
+      <i class="fa-solid fa-code"></i>
+      Mahasiswa TI & Web Developer
     </div>
-  </section>
 
-  <section id="skills" class="section">
-    <h2>Keahlian</h2>
-    <div class="section-card skills">
-      <span>HTML / CSS</span>
-      <span>JavaScript</span>
-      <span>Python</span>
-      <span>PHP / Laravel</span>
-      <span>UI/UX Design</span>
-    </div>
-  </section>
+    <h1 class="hero-title">
+      Membangun pengalaman digital modern dan elegan.
+    </h1>
 
-  <section id="experience" class="section">
-    <h2>Pengalaman</h2>
-    <div class="section-grid">
-      <div class="section-card">
-        <p><strong>Ketua Divisi IT — BEM Fakultas Teknik</strong> (2022–2023)</p>
-        <p>Mengelola tim teknologi untuk mendukung kegiatan kampus, sistem pendaftaran, dan event internal.</p>
-      </div>
-      <div class="section-card">
-        <p><strong>Frontend Developer Intern — PT Digitaloka Nusantara</strong> (2023)</p>
-        <p>Membangun antarmuka web responsif dan integrasi desain dengan fitur interaktif.</p>
-      </div>
-      <div class="section-card">
-        <p><strong>Asisten Praktikum Pemrograman Web</strong> (2022–kini)</p>
-        <p>Membimbing mahasiswa dalam pengembangan web dan praktik teknis pemrograman.</p>
-      </div>
-      <div class="section-card">
-        <p><strong>Juara 2 Hackathon Nasional — TechFest Riau</strong> (2023)</p>
-        <p>Merancang solusi inovatif berbasis aplikasi untuk tantangan kompetisi teknologi.</p>
-      </div>
-    </div>
-  </section>
+    <p class="hero-subtitle">
+      Saya adalah mahasiswa Teknik Informatika Universitas Jabal Ghafur yang fokus pada pengembangan website modern, UI/UX design, dan solusi digital kreatif.
+    </p>
 
-<section id="portfolio" class="section">
-  <h2>Portofolio Singkat</h2>
-  <div class="portfolio-grid">
+    <div class="action-group">
 
-    <!-- Project 1 -->
-    <article class="portfolio-card">
-      <img src="gojek.jpg" alt="Gojek App" width="100%">
-      <h3>Website Gojek</h3>
-      <p>Clone tampilan aplikasi Gojek berbasis web.</p>
-
-      <a href="https://frontend-chi-gold-54.vercel.app/" target="_blank">
-        🔗 Lihat Demo
-      </a><br>
-
-      <a href="https://github.com/rasyaislamifasya/gojek" target="_blank">
-        💻 Lihat Source Code
+      <a href="#contact" class="button button-primary">
+        <i class="fa-solid fa-paper-plane"></i>
+        Hubungi Saya
       </a>
-      
-    </article>
 
-    <!-- Project 2 -->
-    <article class="portfolio-card">
-      <img src="kas.jpeg" alt="Project 2" width="100%">
-      <h3>Kas Desa</h3>
-      <p>
-        aplikasi kas desa berbasis web adalah sistem informasi yang digunakan
-        untuk mengelola pencatatan keuangan desa secara digital.
-      </p>
+      <a href="https://github.com/rasyaislamifasya"
+      target="_blank"
+      class="button button-secondary">
 
-      <a href="https://rasyaislamifasya.github.io/kas_desa/" target="_blank">
-        🔗 Lihat Demo
-      </a><br>
+        <i class="fa-brands fa-github"></i>
+        Github
 
-      <a href="https://github.com/rasyaislamifasya/kas_desa" target="_blank">
-        💻 Lihat Source Code
       </a>
-    </article>
 
-      <!-- Project 3 -->
-    <article class="portfolio-card">
-      <img src="log-aktivitas-mahasiswa.png" alt="Project 2" width="100%">
-      <h3>Academic Log System</h3>
-      <p>
-        Academic Log System adalah aplikasi web full stack untuk mencatat, memantau, dan mengelola Log Aktivitas Mahasiswa dalam satu sistem yang lebih rapi daripada spreadsheet biasa. Sistem ini dirancang agar mahasiswa dapat mengisi aktivitas harian dengan cepat, sementara admin atau dosen dapat memantau, mencari, memfilter, dan melihat detail data dengan lebih mudah.
-      </p>
-
-      <a href="https://log-aktivitas-mahasiswa-app.vercel.app/" target="_blank">
-        🔗 Lihat Demo
-      </a><br>
-
-      <a href="https://github.com/rasyaislamifasya/log-aktivitas-mahasiswa" target="_blank">
-        💻 Lihat Source Code
-      </a>
-    </article>
+    </div>
 
   </div>
+
 </section>
 
-  <section id="contact" class="section">
-    <h2>Kontak</h2>
-    <div class="section-card details-list">
-      <span><strong>Email</strong>: Rasya.islami fasya@example.com</span>
-      <span><strong>Telepon</strong>: +62 822-1473-9620</span>
-      <span><strong>Alamat</strong>: Pidie, Aceh</span>
-      <span><strong>LinkedIn</strong>: linkedin.com/in/Rasya islami fasya</span>
-    </div>
-  </section>
+<section id="about" class="section">
 
-  <div class="footer">
-    © 2026 Portfolio Rasya islamifasyarasya
+  <h2>Tentang Saya</h2>
+
+  <div class="section-card">
+
+    <p>
+      Saya adalah mahasiswa Teknik Informatika dengan passion di bidang Web Development dan UI/UX Design. Saya aktif membuat project modern, mengikuti kompetisi teknologi, dan terus meningkatkan kemampuan melalui pengalaman praktis.
+    </p>
+
   </div>
+
+</section>
+
+<section id="education" class="section">
+
+  <h2>Pendidikan</h2>
+
+  <div class="section-card details-list">
+
+    <span><strong>S1 Teknik Informatika</strong> — Universitas Jabal Ghafur (2024–Sekarang)</span>
+
+    <span><strong>MAN 2 Pidie</strong> — IPA</span>
+
+    <span><strong>IPK</strong> — 3.72 / 4.00</span>
+
+  </div>
+
+</section>
+
+<section id="skills" class="section">
+
+  <h2>Keahlian</h2>
+
+  <div class="skills">
+
+    <span>HTML / CSS</span>
+    <span>JavaScript</span>
+    <span>PHP</span>
+    <span>Laravel</span>
+    <span>Python</span>
+    <span>UI/UX Design</span>
+
+  </div>
+
+</section>
+
+<section id="experience" class="section">
+
+  <h2>Pengalaman</h2>
+
+  <div class="section-grid">
+
+    <div class="section-card">
+      <h3>Frontend Developer</h3>
+      <p>Membangun tampilan website modern dan responsive.</p>
+    </div>
+
+    <div class="section-card">
+      <h3>UI/UX Designer</h3>
+      <p>Mendesain antarmuka aplikasi yang modern dan user friendly.</p>
+    </div>
+
+    <div class="section-card">
+      <h3>Web Developer</h3>
+      <p>Membuat aplikasi web full stack menggunakan teknologi modern.</p>
+    </div>
+
+  </div>
+
+</section>
+
+<section id="portfolio" class="section">
+
+<h2>Portfolio</h2>
+
+<div class="portfolio-grid">
+
+<!-- PROJECT 1 -->
+
+<article class="portfolio-card">
+
+<img src="gojek.jpg" alt="Project Gojek">
+
+<h3>Website Gojek</h3>
+
+<p>
+Clone tampilan aplikasi Gojek berbasis web dengan desain modern dan responsive.
+</p>
+
+<div class="project-links">
+
+<a href="https://frontend-chi-gold-54.vercel.app/" target="_blank">
+<i class="fa-solid fa-globe"></i>
+Demo
+</a>
+
+<a href="https://github.com/rasyaislamifasya/gojek" target="_blank">
+<i class="fa-brands fa-github"></i>
+Github
+</a>
+
+</div>
+
+</article>
+
+<!-- PROJECT 2 -->
+
+<article class="portfolio-card">
+
+<img src="kas.jpeg" alt="Kas Desa">
+
+<h3>Kas Desa</h3>
+
+<p>
+Aplikasi kas desa berbasis web untuk mengelola keuangan desa secara digital.
+</p>
+
+<div class="project-links">
+
+<a href="https://rasyaislamifasya.github.io/kas_desa/" target="_blank">
+<i class="fa-solid fa-globe"></i>
+Demo
+</a>
+
+<a href="https://github.com/rasyaislamifasya/kas_desa" target="_blank">
+<i class="fa-brands fa-github"></i>
+Github
+</a>
+
+</div>
+
+</article>
+
+<!-- PROJECT 3 -->
+
+<article class="portfolio-card">
+
+<img src="log-aktivitas-mahasiswa.png" alt="Academic Log System">
+
+<h3>Academic Log System</h3>
+
+<p>
+Sistem log aktivitas mahasiswa berbasis web full stack untuk pencatatan dan monitoring aktivitas akademik.
+</p>
+
+<div class="project-links">
+
+<a href="https://log-aktivitas-mahasiswa-app.vercel.app/" target="_blank">
+<i class="fa-solid fa-globe"></i>
+Demo
+</a>
+
+<a href="https://github.com/rasyaislamifasya/log-aktivitas-mahasiswa" target="_blank">
+<i class="fa-brands fa-github"></i>
+Github
+</a>
+
+</div>
+
+</article>
+
+</div>
+
+</section>
+
+<section id="contact" class="section">
+
+<h2>Kontak</h2>
+
+<div class="section-card details-list">
+
+<span>
+<strong>Email:</strong>
+rasya@example.com
+</span>
+
+<span>
+<strong>Telepon:</strong>
++62 822-1473-9620
+</span>
+
+<span>
+<strong>Alamat:</strong>
+Pidie, Aceh
+</span>
+
+</div>
+
+</section>
+
+<div class="footer">
+© 2026 Portfolio — Rasya Islami Fasya
+</div>
+
 </div>
 
 </body>
